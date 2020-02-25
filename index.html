@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Game</title>
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+
+    <style type="text/css">
+
+        .crystal-image {
+          width: 300px;
+          height: 300px;
+        }
+      </style>
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Crystal Guessing Game</h1>
+            <p class="lead text-center">Click on the crystals to add up to the secret number.</p>
+        </div>
+    </div>
+
+
+    
+  <div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4">
+        <div class="card">
+            <img class="crystal-image" src="images/cyrstal1.png" class="card-img-top" alt="crystal1">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text" id="letters"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card" >
+            <img class="crystal-image" src="images/crystal2.png" class="card-img-top" alt="crystal2">
+            <div class="card-body text-center" id="game">
+                <h5 class="card-title"></h5>
+                <p class="card-text text-center" id="board"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card" >
+            <img class="crystal-image" src="images/crystal3.png" class="card-img-top" alt="crystal3">
+            <div class="card-body text-center" id="game">
+                <h5 class="card-title"></h5>
+                <p class="card-text text-center" id="board"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+    <div class="card">
+        <img class="crystal-image" src="images/crystal4.png" class="card-img-top" alt="crystal4">
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+  <script type="text/javascript">
+
+  var targetNumber = 53;
+
+  var counter = 0;
+
+  var numberOptions = [10, 5, 3, 7];
+
+
+  
+
+ 
+  </script>
+
+</body>
+</html>
