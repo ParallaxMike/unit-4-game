@@ -1,23 +1,44 @@
 
 
-    var targetNumber = 53;
+    var targetNumber = Math.floor(Math.random()*121 + 1);
   
-    $("#number-to-guess").text(targetNumber);
+    document.getElementById("target").innerHTML = "Your target number is " + targetNumber;
   
     var counter = 0;
     var wins = 0;
     var losses = 0;
+    
+    
   
     // Now for the hard part. Creating multiple crystals each with their own unique number value.
   
     // We begin by expanding our array to include four options.
-    var numberOptions = [10, 5, 3, 7];
+    var numberOptions = [Math.floor(Math.random()*20 + 1), Math.floor(Math.random()*20 + 1), Math.floor(Math.random()*20 + 1), Math.floor(Math.random()*20 + 1)];
     var imageOptions = ["./images/cyrstal1.png", "./images/crystal2.png", "./images/crystal3.png", "./images/crystal4.png"]
     var crystalID = ["#crystal1", "#crystal2", "#crystal3", "#crystal4"]
+
+
+
     function reset(){
       counter=0;
+      numberOptions = [Math.floor(Math.random()*20 + 1), Math.floor(Math.random()*20 + 1), Math.floor(Math.random()*20 + 1), Math.floor(Math.random()*20 + 1)];
+      targetNumber = Math.floor(Math.random()*121 + 1);
+  
+      document.getElementById("target").innerHTML = "Your target number is " + targetNumber
+
+      $( "#crystal1" ).empty();
+      $( "#crystal2" ).empty();
+      $( "#crystal3" ).empty();
+      $( "#crystal4" ).empty();
+    
+      start();
+
     }
+    start();
+
+
     // Next we create a for loop to create crystals for every numberOption.
+    function start (){
     for (var i = 0; i < numberOptions.length; i++) {
   
       // For each iteration, we will create an imageCrystal
@@ -35,46 +56,58 @@
       imageCrystal.attr("data-crystalvalue", numberOptions[i]);
   
       // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+      
       $(crystalID[i]).append(imageCrystal);
+
+      
   
     }
-  
-    // This time, our click event applies to every single crystal on the page. Not just one.
-    $(".crystal-image").on("click", function() {
-      //clear win or lose banner
-      document.getElementById("winalert").innerHTML = "";
-  
-      var crystalValue = ($(this).attr("data-crystalvalue"));
-      crystalValue = parseInt(crystalValue);
-      // We then add the crystalValue to the user's "counter" which is a global variable.
-      // Every click, from every crystal adds to the global counter.
-      counter += crystalValue;
-  
-      // All of the same game win-lose logic applies. So the rest remains unchanged.
-      // alert("New score: " + counter);
-      document.getElementById("score").innerHTML = "Your Score: " + counter;
-      document.getElementById("wins").innerHTML = "Your wins: " + wins;
-      document.getElementById("losses").innerHTML = "Your losses: " + losses;
-      if (counter === targetNumber) {
-        document.getElementById("winalert").innerHTML = "You Win!";
-        wins++;
-        reset();
-        document.getElementById("score").innerHTML = "Your Score: " + counter;
-      document.getElementById("wins").innerHTML = "Your wins: " + wins;
-      document.getElementById("losses").innerHTML = "Your losses: " + losses;
-      }
-  
-      else if (counter >= targetNumber) {
-        document.getElementById("winalert").innerHTML = "You Lose!";
-        losses++;
-        reset();
-        document.getElementById("score").innerHTML = "Your Score: " + counter;
-      document.getElementById("wins").innerHTML = "Your wins: " + wins;
-      document.getElementById("losses").innerHTML = "Your losses: " + losses;
-      }
+
+
+        // This time, our click event applies to every single crystal on the page. Not just one.
+        $(".crystal-image").click(function() {
+          //clear win or lose banner
+          document.getElementById("winalert").innerHTML = "";
+         
       
+          var crystalValue = ($(this).attr("data-crystalvalue"));
+          crystalValue = parseInt(crystalValue);
+          // We then add the crystalValue to the user's "counter" which is a global variable.
+          // Every click, from every crystal adds to the global counter.
+          counter += crystalValue;
       
-    });
+          // All of the same game win-lose logic applies. So the rest remains unchanged.
+          // alert("New score: " + counter);
+          document.getElementById("score").innerHTML = "Your Score: " + counter;
+          document.getElementById("wins").innerHTML = "Your wins: " + wins;
+          document.getElementById("losses").innerHTML = "Your losses: " + losses;
+    
+    
+    
+          if (counter === targetNumber) {
+            document.getElementById("winalert").innerHTML = "You Win!";
+            wins++;
+            reset();
+            document.getElementById("score").innerHTML = "Your Score: " + counter;
+          document.getElementById("wins").innerHTML = "Your wins: " + wins;
+          document.getElementById("losses").innerHTML = "Your losses: " + losses;
+          }
+      
+    
+          else if (counter >= targetNumber) {
+            document.getElementById("winalert").innerHTML = "You Lose!";
+            losses++;
+            reset();
+            document.getElementById("score").innerHTML = "Your Score: " + counter;
+          document.getElementById("wins").innerHTML = "Your wins: " + wins;
+          document.getElementById("losses").innerHTML = "Your losses: " + losses;
+          }
+          
+          
+        })
+  }
+  
+;
 
 
   
